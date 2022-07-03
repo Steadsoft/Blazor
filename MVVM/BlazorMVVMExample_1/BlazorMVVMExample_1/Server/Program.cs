@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.ResponseCompression;
-
 namespace BlazorMVVMExample_1
 {
     public class Program
