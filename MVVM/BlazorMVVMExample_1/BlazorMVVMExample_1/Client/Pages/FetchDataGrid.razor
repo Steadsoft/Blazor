@@ -1,8 +1,14 @@
 ﻿@using BlazorMVVMExample_1.Shared
 @using BlazorMVVMExample_1.Client.ViewModels
 
+@* This identifies the route, relative URL of this page. *@
 
 @page "/fetchdatagrid"
+
+@* This identifies the interface of the view model and the name  *@
+@* of an instance that will be created by the framework from the *@
+@* directives setup on the client's Program.cs file.             *@
+
 @inject IWeatherForecastsViewModel ViewModel
 
 <PageTitle>Weather data grid</PageTitle>
