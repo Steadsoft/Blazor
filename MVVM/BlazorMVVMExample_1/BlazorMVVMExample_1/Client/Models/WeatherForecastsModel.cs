@@ -1,4 +1,7 @@
-﻿namespace BlazorMVVMExample_1.Client.Models
+﻿using BlazorMVVMExample_1.Shared;
+using System.Net.Http.Json;
+
+namespace BlazorMVVMExample_1.Client.Models
 {
     public class WeatherForecastsModel : IWeatherForecastsModel
     {
@@ -7,6 +10,11 @@
         public WeatherForecastsModel(HttpClient HttpClient)
         {
             httpClient = HttpClient;
+        }
+
+        public async Task<WeatherForecast[]> FetchWeatherData()
+        {
+            return await httpClient.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
         }
     }
 }
