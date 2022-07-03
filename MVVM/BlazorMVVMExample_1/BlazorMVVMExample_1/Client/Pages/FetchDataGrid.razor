@@ -1,0 +1,33 @@
+﻿@using BlazorMVVMExample_1.Shared
+@using BlazorMVVMExample_1.Client.ViewModels
+
+
+@page "/fetchdatagrid"
+@inject IWeatherForecastsViewModel ViewModel
+
+<PageTitle>Weather data grid</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates rendering data from a view model using a grid.</p>
+
+<RadzenDataGrid AllowFiltering="true" 
+                AllowColumnResize="true" 
+                FilterMode="FilterMode.Advanced" 
+                AllowSorting="true" 
+                PageSize="10" 
+                AllowPaging="true" 
+                PagerHorizontalAlign="HorizontalAlign.Left" 
+                ShowPagingSummary="true"
+                Data="@ViewModel.WeatherForecasts" 
+                TItem="WeatherForecast" 
+                ColumnWidth="300px" 
+                LogicalFilterOperator="LogicalFilterOperator.Or">
+        <Columns>
+            <RadzenDataGridColumn TItem="WeatherForecast" Property="Summary" Title="Weather Summary" Frozen="true" Width="80px" />
+            <RadzenDataGridColumn TItem="WeatherForecast" Property="Date" Title="Forecast Date" Frozen="true" Width="40px"/>
+            <RadzenDataGridColumn TItem="WeatherForecast" Property="TemperatureC" Title="Temperature (C)" Filterable="false" Frozen="true" Width="70px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn TItem="WeatherForecast" Property="TemperatureF" Title="Temperature (F)" Filterable="false" Frozen="true" Width="70px" TextAlign="TextAlign.Center" />
+        </Columns>
+    </RadzenDataGrid>
+
