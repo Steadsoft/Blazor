@@ -1,14 +1,16 @@
-﻿@page "/fetchdata"
-@using BlazorMVVMExample_1.Shared
-@inject HttpClient Http
+﻿@using BlazorMVVMExample_1.Shared
+@using BlazorMVVMExample_1.Client.ViewModels
+
+@page "/fetchdata"
+@inject IWeatherForecastsViewModel ViewModel
 
 <PageTitle>Weather forecast</PageTitle>
 
 <h1>Weather forecast</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This component demonstrates rendering data from a view model.</p>
 
-@if (forecasts == null)
+@if (ViewModel.WeatherForecasts == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -24,7 +26,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var forecast in ViewModel.WeatherForecasts)
             {
                 <tr>
                     <td>@forecast.Date.ToShortDateString()</td>
@@ -37,11 +39,3 @@ else
     </table>
 }
 
-@code {
-    private WeatherForecast[]? forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
-    }
-}

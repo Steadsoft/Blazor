@@ -4,6 +4,6 @@ namespace BlazorMVVMExample_1.Client.Models
 {
     public interface IWeatherForecastsModel
     {
-        Task<WeatherForecast[]> FetchWeatherData();
+        Task<WeatherForecast[]> FetchWeatherDataAsync();
     }
 }

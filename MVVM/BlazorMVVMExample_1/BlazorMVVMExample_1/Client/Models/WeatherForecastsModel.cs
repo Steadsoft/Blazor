@@ -12,7 +12,7 @@ namespace BlazorMVVMExample_1.Client.Models
             httpClient = HttpClient;
         }
 
-        public async Task<WeatherForecast[]> FetchWeatherData()
+        public async Task<WeatherForecast[]> FetchWeatherDataAsync()
         {
             return await httpClient.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
         }
