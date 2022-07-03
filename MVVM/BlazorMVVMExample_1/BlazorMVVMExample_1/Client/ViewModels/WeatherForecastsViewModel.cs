@@ -3,6 +3,9 @@ using BlazorMVVMExample_1.Shared;
 
 namespace BlazorMVVMExample_1.Client.ViewModels
 {
+    /// <summary>
+    /// Represents the abstract aspects of the user interface for the view.
+    /// </summary>
     public class WeatherForecastsViewModel : IWeatherForecastsViewModel
     {
         private WeatherForecast[] _weatherForecasts;

@@ -3,6 +3,9 @@ using System.Net.Http.Json;
 
 namespace BlazorMVVMExample_1.Client.Models
 {
+    /// <summary>
+    /// Represents the abstract aspects of the business model.
+    /// </summary>
     public class WeatherForecastsModel : IWeatherForecastsModel
     {
         private HttpClient httpClient;
